@@ -1,0 +1,33 @@
+name: Deploy master
+env:
+  EB_PACKAGE_S3_BUCKET_NAME: "flohiringflask"
+	EB_APPLICATION_NAME: "flask-flohiring"
+	EB_ENVIRONMENT_NAME: "Flaskflohiring-env"
+	DEPLOY_PACKAGE_NAME: "flohiringflask-${{ github.sha }}.zip"
+	AWS_REGION_NAME: "eu-west-1"
+	
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  my_ci_pipeline:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout source code
+      uses: actions/checkout@v2
+
+    - name: Generate deployment package
+      run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} . -x '.git'
+    
+    - name: Configure AWS Credentials
+			uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+				aws-region: ${{ env.AWS_REGION_NAME }}
+			
+    - name: Copy our deployment package to our S3 buckets
+      run: echo "CI part of Pipeline is finished"
