@@ -1,10 +1,10 @@
 name: Deploy master
 env:
   EB_PACKAGE_S3_BUCKET_NAME: "flohiringflask"
-	EB_APPLICATION_NAME: "flask-flohiring"
-	EB_ENVIRONMENT_NAME: "Flaskflohiring-env"
-	DEPLOY_PACKAGE_NAME: "flohiringflask-${{ github.sha }}.zip"
-	AWS_REGION_NAME: "eu-west-1"
+  EB_APPLICATION_NAME: "flask-flohiring"
+  EB_ENVIRONMENT_NAME: "Flaskflohiring-env"
+  DEPLOY_PACKAGE_NAME: "flohiringflask-${{ github.sha }}.zip"
+  AWS_REGION_NAME: "eu-west-1"
 	
 on:
   push:
