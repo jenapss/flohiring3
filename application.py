@@ -2,13 +2,13 @@ from flask import Flask, jsonify
 
 import requests
 
-app = Flask(__name__)
+application = Flask(__name__)
 
-@app.route("/")
+@application.route("/")
 def index():
-    return "THE APP IS UP AND RUNNING!"
+    return "THE application IS UP AND RUNNING!"
 
-@app.route("/prediction/<email>", methods=['POST', "GET"])
+@application.route("/prediction/<email>", methods=['POST', "GET"])
 def prediction(email):
     
     x = requests.get('http://dev.flohiring.com/candidates/email-domain-headers/{}'.format(email))
@@ -42,4 +42,4 @@ def prediction(email):
     
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    application.run(debug=True)
