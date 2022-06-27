@@ -5,7 +5,7 @@ env:
   EB_ENVIRONMENT_NAME: "Flaskflohiring-env"
   DEPLOY_PACKAGE_NAME: "flohiringflask-${{ github.sha }}.zip"
   AWS_REGION_NAME: "eu-west-1"
-	
+
 on:
   push:
     branches:
