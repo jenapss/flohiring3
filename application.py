@@ -18,7 +18,7 @@ def prediction(email):
     if len(x.json()['headers']) != 0:
         try:
             import openai
-            openai.api_key = "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"
+            openai.api_key = "xxxxxxxxx"
             ft_model = 'babbage:ft-flohiring-2022-06-15-18-49-16'
             prompt_text = ' '.join(x.json()['headers']) + "\n\n###\n\n"
             print("TTTT", prompt_text)
