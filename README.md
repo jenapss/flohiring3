@@ -28,6 +28,36 @@ response = requests.get(url)
 
 print(response.json())  # {"RESPONSE": "Technology"}
 ```
+## Continuous Integration and Continuous Deployment (CI/CD)
+This project uses GitHub Actions to implement a CI/CD pipeline to automatically build and deploy changes to Elastic Beanstalk whenever changes are pushed to the main branch.
+
+## CI Pipeline
+When changes are pushed to the main branch, the CI pipeline will be triggered. The pipeline consists of the following steps:
+
+Checkout source code from GitHub repository.
+Generate deployment package using zip.
+Configure AWS credentials.
+Copy the deployment package to an S3 bucket.
+Finish the CI pipeline.
+CD Pipeline
+The CD pipeline is triggered by the completion of the CI pipeline. The pipeline consists of the following steps:
+
+##Configure AWS credentials.
+Create a new Elastic Beanstalk application version.
+Deploy the new application version to the Elastic Beanstalk environment.
+Print a message indicating that the deployment was successful.
+
+##Secrets
+To implement the CI/CD pipeline, we need to configure two secrets in our repository settings:
+
+AWS_ACCESS_KEY_ID: The access key ID for an AWS account with permissions to access Elastic Beanstalk and S3.
+AWS_SECRET_ACCESS_KEY: The secret access key for the same AWS account.
+License
+This project is licensed under the MIT License. See the LICENSE file for more information.
+
+
+
+
 
 
 
